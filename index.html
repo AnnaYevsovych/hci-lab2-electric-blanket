@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Керування електроковдрою</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<div class="wrap">
+<h1>Керування електроковдрою</h1>
+
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" data-v="v1" aria-selected="true">1. Форма</button>
+<button class="tab" role="tab" data-v="v2" aria-selected="false">2. Сцени</button>
+<button class="tab" role="tab" data-v="v3" aria-selected="false">3. Повзунки</button>
+</div>
+
+<div class="bar">
+<label><input type="checkbox" id="annot"> Зони Фітса (синій) та Хіка (фіолетовий)</label>
+<button class="ghost" id="reset">Спробувати знову</button>
+</div>
+
+<div class="status" id="st"><b id="stt">Ковдра вимкнена</b><span id="sts"></span></div>
+
+<section class="panel" id="v1">
+<div class="f">
+<div data-hik="Хік: діапазон 30–45 °C підказано">
+<label class="t" for="t1">Температура, °C</label>
+<input id="t1" type="number" inputmode="numeric" min="30" max="45" value="30">
+<div class="hint">Безпечний діапазон: 30–45 °C</div>
+</div>
+<div>
+<span class="t">Вимкнути через, год</span>
+<div class="rg" data-hik="Хік: лише 4 варіанти таймера" data-fit="Фітс: широкі цілі">
+<label><input type="radio" name="tm" value="1"><span>1</span></label>
+<label><input type="radio" name="tm" value="2"><span>2</span></label>
+<label><input type="radio" name="tm" value="4"><span>4</span></label>
+<label><input type="radio" name="tm" value="8"><span>8</span></label>
+</div>
+</div>
+<div class="err" id="e1"></div>
+<button class="go" id="go1" data-fit="Фітс: велика кнопка на всю ширину">Увімкнути</button>
+</div>
+</section>
+
+<section class="panel" id="v2" hidden>
+<h3>Мої сцени</h3>
+<div class="cards" data-hik="Хік: 4 сцени замість налаштувань">
+<button class="card" data-t="40" data-h="0.5" data-n="Прогріти ліжко" data-fit="Фітс: велика ціль"><strong>Прогріти ліжко</strong><small>40 °C · 30 хв</small></button>
+<button class="card" data-t="38" data-h="2" data-n="Сон" data-fit="Фітс: велика ціль"><strong>Сон</strong><small>38 °C · 2 год</small></button>
+<button class="card" data-t="36" data-h="1" data-n="Читання" data-fit="Фітс: велика ціль"><strong>Читання</strong><small>36 °C · 1 год</small></button>
+<button class="card" data-t="34" data-h="4" data-n="Економно" data-fit="Фітс: велика ціль"><strong>Економно</strong><small>34 °C · 4 год</small></button>
+</div>
+<div class="undo" id="undo"><span id="undot"></span><button id="undob">Скасувати</button></div>
+</section>
+
+<section class="panel" id="v3" hidden>
+<div class="f">
+<div data-fit="Фітс: великий бігунок" data-hik="Хік: крок 1 °C, діапазон обмежено">
+<div class="row"><span class="t">Температура</span><b id="tv">30 °C</b></div>
+<input id="rt" type="range" min="30" max="45" step="1" value="30">
+<div class="ticks"><span>30</span><span>45</span></div>
+</div>
+<div data-fit="Фітс: великий бігунок" data-hik="Хік: 9 положень таймера">
+<div class="row"><span class="t">Вимкнути через</span><b id="hv">0 год</b></div>
+<input id="rh" type="range" min="0" max="8" step="1" value="0">
+<div class="ticks"><span>0</span><span>8 год</span></div>
+</div>
+<button class="go" id="go3" data-fit="Фітс: велика кнопка внизу">Увімкнути</button>
+</div>
+</section>
+
+<div class="res" id="res"></div>
+</div>
+</body>
+</html>
